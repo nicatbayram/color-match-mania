@@ -20,11 +20,11 @@ Color Match Mania is a fun and engaging color matching game built with React Nat
 2. **Install dependencies**:
     ```sh
     npm install
+    npm install-expo-modules@latest
     ```
 
 3. **Start the application**:
     ```sh
-    npm install-expo-modules@latest
     npx expo start
     ```
 
