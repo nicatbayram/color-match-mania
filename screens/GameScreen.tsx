@@ -45,7 +45,6 @@ export default function GameScreen() {
         console.error("Error loading sounds:", error);
       }
     };
-    
     loadSounds();
 
     return () => {
@@ -112,6 +111,15 @@ export default function GameScreen() {
   if (gameState === "start") {
     return (
       <View style={styles(darkMode).container}>
+        
+        <Animatable.View animation="zoomInUp">
+          <Text style={styles(darkMode).title}> Color Match Mania </Text>
+        </Animatable.View>
+        <Animatable.View animation="shake" easing="ease-out" iterationCount={2}>
+          <TouchableOpacity style={styles(darkMode).button} onPress={startGame}>
+            <Text style={styles(darkMode).buttonText}>Start Game</Text>
+          </TouchableOpacity>
+        </Animatable.View>
         <View style={styles(darkMode).switchContainer}>
           <Text style={styles(darkMode).switchLabel}>
             {darkMode ? "Dark Mode" : "Light Mode"}
@@ -125,14 +133,6 @@ export default function GameScreen() {
             </Text>
           </TouchableOpacity>
         </View>
-        <Animatable.View animation="zoomInUp">
-          <Text style={styles(darkMode).title}> Color Match Mania </Text>
-        </Animatable.View>
-        <Animatable.View animation="shake" easing="ease-out" iterationCount={2}>
-          <TouchableOpacity style={styles(darkMode).button} onPress={startGame}>
-            <Text style={styles(darkMode).buttonText}>Start Game</Text>
-          </TouchableOpacity>
-        </Animatable.View>
       </View>
     );
   }
@@ -162,7 +162,7 @@ export default function GameScreen() {
       <View
         style={[styles(darkMode).targetColorBox, { backgroundColor: targetColor }]}
       />
-      <Text style={styles(darkMode).timer}>Time Left: {timeLeft}s</Text>
+      <Text style={styles(darkMode).timer}>Time Left: {timeLeft} s</Text>
       <Text style={styles(darkMode).score}>Score: {score}</Text>
       <FlatList
         data={colorGrid}
@@ -183,7 +183,7 @@ export default function GameScreen() {
 const styles = (darkMode: boolean) => StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 50,
+    paddingTop: 50,
     backgroundColor: darkMode ? "#021526" : "#f4f4f4",
     padding: 14,
     alignItems: "center",
@@ -205,8 +205,8 @@ const styles = (darkMode: boolean) => StyleSheet.create({
     width: 100,
     height: 100,
     marginBottom: 20,
-    borderRadius: 8,
-    borderWidth: 0.5, // Border genişliği
+    borderRadius: 50,
+    borderWidth: 0.5,
     borderColor: darkMode ? '#fff' : '#5C636E',
     elevation: 5,
     shadowColor:  darkMode ? '#F4CE14' : '#000',
@@ -216,7 +216,7 @@ const styles = (darkMode: boolean) => StyleSheet.create({
   },
   timer: {
     fontWeight: "bold",
-    fontSize: 18,
+    fontSize: 20,
     color: darkMode ? "#fff" : "#333",
     marginBottom: 10,
   },
@@ -229,13 +229,14 @@ const styles = (darkMode: boolean) => StyleSheet.create({
   grid: {
     flexGrow: 1,
     justifyContent: "center",
+    paddingBottom: 50,
   },
   tile: {
     width: 80,
     height: 80,
     margin: 5,
-    borderRadius: 8,
-    borderWidth: 0.5, // Border genişliği
+    borderRadius: 50,
+    borderWidth: 0.5, 
     borderColor: darkMode ? '#fff' : '#929AAB',
     elevation: 5,
     shadowColor:  darkMode ? '#F4CE14' : '#000',
@@ -273,6 +274,7 @@ const styles = (darkMode: boolean) => StyleSheet.create({
     fontSize: 16,
   },
   switchContainer: {
+    paddingTop: 20,
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 20,
