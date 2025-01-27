@@ -67,5 +67,12 @@ Contributions are welcome! Please fork the repository and submit a pull request 
 - **Audio**: For handling sound effects.
 
 ---
-
 Enjoy playing Color Match Mania!
+
+## ScreenShots
+
+https://github.com/user-attachments/assets/c3305eff-8024-4460-a934-074290591ffc
+
+
+
+
